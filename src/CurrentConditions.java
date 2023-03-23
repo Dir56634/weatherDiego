@@ -1,9 +1,9 @@
-public class CurrentConditionsDisplay implements Observer, DisplayElement {
+public class CurrentConditions implements Observer, DisplayElement {
     private float temperature;
     private float humidity;
     private Subject weatherData;
 
-    public CurrentConditionsDisplay(Subject weatherData) {
+    public CurrentConditions(Subject weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
@@ -15,7 +15,7 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
     }
 
     public void display() {
-        System.out.println("Current conditions: " + temperature
-                + "F degrees and " + humidity + "% humidity");
+        System.out.println("condiciones actuales: " + temperature
+                + " grados F " + humidity + " % humedad");
     }
 }

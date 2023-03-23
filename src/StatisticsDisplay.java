@@ -1,8 +1,8 @@
 public class StatisticsDisplay implements Observer, DisplayElement {
     private float maxTemp = 0.0f;
-    private float minTemp = 200;
+    private float minTemp = 250;
     private float tempSum= 0.0f;
-    private int numReadings;
+    private int n;
     private WeatherData weatherData;
 
     public StatisticsDisplay(WeatherData weatherData) {
@@ -12,7 +12,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 
     public void update(float temp, float humidity, float pressure) {
         tempSum += temp;
-        numReadings++;
+        n++;
 
         if (temp > maxTemp) {
             maxTemp = temp;
@@ -26,7 +26,7 @@ public class StatisticsDisplay implements Observer, DisplayElement {
     }
 
     public void display() {
-        System.out.println("Avg/Max/Min temperature = " + (tempSum / numReadings)
-                + "/" + maxTemp + "/" + minTemp);
+        System.out.println("temperatura promedio = " + (tempSum / n)
+                + "Temperatura maxima  =" + maxTemp + " temperatura minima  =" + minTemp);
     }
 }
